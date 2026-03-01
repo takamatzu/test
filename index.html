@@ -6,42 +6,68 @@
   <title>Test</title>
   <style>
     html, body { margin: 0; padding: 0; width: 100%; }
-    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; }
-    #otp_wgt_4uniw2c3qviok {
-      width: 100% !important;
-      max-width: 100% !important;
-      box-sizing: border-box;
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; background: #fff; }
+    .wrap {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
       padding: 12px;
+      box-sizing: border-box;
     }
-    #otp_wgt_4uniw2c3qviok iframe,
-    #otp_wgt_4uniw2c3qviok > div,
-    #otp_wgt_4uniw2c3qviok table {
-      width: 100% !important;
+    #otp_wgt_4uniw2c3qviok,
+    #otp_wgt_4uniw2c3qviok * {
       max-width: 100% !important;
       box-sizing: border-box;
     }
-    #otp_wgt_4uniw2c3qviok * {
-      max-width: 100%;
+
+    #otp_wgt_4uniw2c3qviok iframe,
+    #otp_wgt_4uniw2c3qviok table,
+    #otp_wgt_4uniw2c3qviok > div {
+      width: 100% !important;
+      max-width: 100% !important;
     }
   </style>
 </head>
 <body>
-  <div id="otp_wgt_4uniw2c3qviok"></div>
+  <div class="wrap">
+    <div id="otp_wgt_4uniw2c3qviok"></div>
+  </div>
+
   <script>
+    function forceResponsive() {
+      const root = document.getElementById("otp_wgt_4uniw2c3qviok");
+      if (!root) return;
+
+      const nodes = root.querySelectorAll("iframe, table, div");
+      nodes.forEach(el => {
+        el.style.width = "100%";
+        el.style.maxWidth = "100%";
+        el.style.boxSizing = "border-box";
+      });
+      const iframes = root.querySelectorAll("iframe");
+      iframes.forEach(f => {
+        f.removeAttribute("width");
+        f.removeAttribute("height");
+        f.style.width = "100%";
+        if (!f.style.height) f.style.minHeight = "70vh";
+      });
+    }
+    const obs = new MutationObserver(forceResponsive);
+    obs.observe(document.documentElement, { childList: true, subtree: true });
     var otp_wjs_dt = (new Date).getTime();
     (function (w, d, n, s, rp) {
-        w[n] = w[n] || [];
-        rp = {};
-        w[n].push(function () {
-            otp_render_widget(d.getElementById("otp_wgt_4uniw2c3qviok"), 'onlinetestpad.com', '4uniw2c3qviok', rp);
-        });
-        s = d.createElement("script");
-        s.type = "text/javascript";
-        s.src = "https://onlinetestpad.com/js/widget.js?" + otp_wjs_dt;
-        s.async = true;
-        d.head.appendChild(s);
+      w[n] = w[n] || [];
+      rp = {};
+      w[n].push(function () {
+        otp_render_widget(d.getElementById("otp_wgt_4uniw2c3qviok"), "onlinetestpad.com", "4uniw2c3qviok", rp);
+        forceResponsive();
+      });
+      s = d.createElement("script");
+      s.type = "text/javascript";
+      s.src = "https://onlinetestpad.com/js/widget.js?" + otp_wjs_dt;
+      s.async = true;
+      d.head.appendChild(s);
     })(this, document, "otp_widget_callbacks");
   </script>
-
 </body>
 </html>
