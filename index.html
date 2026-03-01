@@ -1,17 +1,45 @@
-<!-- Online Test Pad Test Widget (#371722)-->
-<div id="otp_wgt_4uniw2c3qviok"></div>
-<script type="text/javascript">
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Тест</title>
+  <style>
+    body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; }
+    .wrap { max-width: 720px; margin: 0 auto; padding: 12px; }
+    #otp_wgt_4uniw2c3qviok iframe,
+    #otp_wgt_4uniw2c3qviok > div,
+    #otp_wgt_4uniw2c3qviok {
+      width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div id="otp_wgt_4uniw2c3qviok"></div>
+  </div>
+
+  <script>
     var otp_wjs_dt = (new Date).getTime();
     (function (w, d, n, s, rp) {
-        w[n] = w[n] || [];
-        rp = {};
-        w[n].push(function () {
-            otp_render_widget(d.getElementById("otp_wgt_4uniw2c3qviok"), 'onlinetestpad.com', '4uniw2c3qviok', rp);
-        }); 
-        s = d.createElement("script");
-        s.type = "text/javascript";
-        s.src = "//onlinetestpad.com/js/widget.js?" + otp_wjs_dt;
-        s.async = true;
-        d.getElementsByTagName("head")[0].appendChild(s);
-    })(this, this.document, "otp_widget_callbacks");
-</script>
+      w[n] = w[n] || [];
+      rp = {};
+      w[n].push(function () {
+        otp_render_widget(
+          d.getElementById("otp_wgt_4uniw2c3qviok"),
+          "onlinetestpad.com",
+          "4uniw2c3qviok",
+          rp
+        );
+      });
+      s = d.createElement("script");
+      s.type = "text/javascript";
+      s.src = "https://onlinetestpad.com/js/widget.js?" + otp_wjs_dt;
+      s.async = true;
+      d.head.appendChild(s);
+    })(this, document, "otp_widget_callbacks");
+  </script>
+</body>
+</html>
